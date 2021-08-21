@@ -23,12 +23,15 @@ public class Employee {
 	}
 	
 	public double calculateDailyWage() {
-		if(this.employeeType == 1) {
-			return regular_employee_working_hour*wagePerHour;
+		double total_wage = 0;
+		switch (this.employeeType) {
+		case 1 :  total_wage = regular_employee_working_hour*wagePerHour;
+					break;
+		case 2 :  total_wage = parttime_employee_working_hour*wagePerHour;
+					break;
 		}
-		else {
-			return parttime_employee_working_hour*wagePerHour;
-		}
+		
+		return total_wage;
 	}
 	
 	public double calculateMonthlyWage() {
