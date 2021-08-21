@@ -35,4 +35,8 @@ public class Employee {
 		return calculateDailyWage()*working_days_in_a_month;
 	}
 	
+	public double calculateWageHour(int hours) {
+		return wagePerHour*hours;
+	}
+	
 }
