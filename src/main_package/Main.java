@@ -6,7 +6,12 @@ public class Main {
 		
 		System.out.println("Welcome to Employee Wage Computation");
 		
-	}
-	
-	
+		Employee e = new Employee();
+		if(e.isPresent()) {
+			System.out.println("Employee is Present");
+		}
+		else {
+			System.out.println("Employee is Absent");
+		}		
+	}	
 }
