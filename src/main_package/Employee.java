@@ -4,6 +4,7 @@ public class Employee {
 	
 	//constants
 	final double regular_employee_working_hour = 8;
+	final double parttime_employee_working_hour = 8;
 	
 	//class variables
 	double wagePerHour;
@@ -19,5 +20,9 @@ public class Employee {
 	
 	public double calculateRegularWage() {
 		return regular_employee_working_hour*wagePerHour;
+	}
+	
+	public double calculatePartTimeWage() {
+		return parttime_employee_working_hour*wagePerHour;
 	}
 }
