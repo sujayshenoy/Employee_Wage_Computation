@@ -3,16 +3,20 @@ package main_package;
 public class Employee{
 	
 	//constants
-	final double regular_employee_working_hour = 8;
-	final double parttime_employee_working_hour = 8;
-	final double working_days_in_a_month = 20;
+	// final double regularEmployeeWorkingHour = 8;
+	// final double parttime_employee_working_hour = 8;
+	// final double workingDaysMonth = 20;
+	final static int REGULAR_EMP = 1;
+	final static int PART_TIME_EMP =2;
 	
 	//class variables
+	int empId;
 	double wagePerHour;
-	int employeeType; //1 for regular, 2 for part time
+	int employeeType; 
 	double wage;
 	
-	Employee(double wagePerHour, int employeeType){
+	Employee(int empId,double wagePerHour, int employeeType){
+		this.empId = empId;
 		this.wagePerHour = wagePerHour;
 		this.employeeType = employeeType;
 	}
@@ -22,20 +26,14 @@ public class Employee{
 		return attendance==1?true:false;
 	}
 	
-	public double calculateDailyWage(){
+	public double calculateDailyWage(double workingHours){
 		double total_wage = 0;
-		switch (this.employeeType) {
-		case 1 :  total_wage = regular_employee_working_hour*wagePerHour;
-					break;
-		case 2 :  total_wage = parttime_employee_working_hour*wagePerHour;
-					break;
-		}
-		
+		total_wage = workingHours*wagePerHour;
 		return total_wage;
 	}
 	
-	public double calculateMonthlyWage() {
-		return calculateDailyWage()*working_days_in_a_month;
+	public double calculateMonthlyWage(double workingHours,int workingDaysMonth) {
+		return calculateDailyWage(workingHours)*workingDaysMonth;
 	}
 	
 	public double calculateWageHour(int hours) {
