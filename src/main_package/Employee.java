@@ -1,6 +1,6 @@
 package main_package;
 
-public class Employee {
+public class Employee{
 	
 	//constants
 	final double regular_employee_working_hour = 8;
@@ -22,7 +22,7 @@ public class Employee {
 		return attendance==1?true:false;
 	}
 	
-	public double calculateDailyWage() {
+	public double calculateDailyWage(){
 		double total_wage = 0;
 		switch (this.employeeType) {
 		case 1 :  total_wage = regular_employee_working_hour*wagePerHour;

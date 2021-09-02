@@ -9,7 +9,9 @@ public class Main {
 		System.out.println("Welcome to Employee Wage Computation");
 		
 		//Adding employee with wage 20 
+
 		Employee e1 = new Employee(20, REGULAR_EMP); 
+		
 		if(e1.isPresent()) {
 			System.out.println("Employee is Present");
 		}
