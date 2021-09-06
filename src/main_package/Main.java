@@ -20,6 +20,7 @@ public class Main {
 			System.out.println("Total wage of EMP: "+employee.empId+" is "+String.format("%.2f", A.calculateWage(employee)));
 		}
 
+		System.out.println("Total Wage of Company: "+A.getCompanyName()+" is "+String.format("%.2f", A.getTotalEmpWage()));
 		System.out.println("");
 
 		//Company B employees
@@ -37,6 +38,7 @@ public class Main {
 			System.out.println("Total wage of EMP: "+employee.empId+" is "+String.format("%.2f", B.calculateWage(employee)));
 		}
 		
+		System.out.println("Total Wage of Company: "+B.getCompanyName()+" is "+String.format("%.2f", B.getTotalEmpWage()));
 		System.out.println("");
 	}	
 }
