@@ -40,7 +40,9 @@ public class Company {
     }
     
     public double calculateWage(Employee e) {
-        return e.calculateWage(workingDaysAMonth, workingHoursAMonth);
+        double res = e.calculateWage(workingDaysAMonth, workingHoursAMonth);
+        totalEmpWage += res;
+        return res;
     }   
 
     public Employee getEmployee(int empId){
@@ -66,10 +68,8 @@ public class Company {
     public List<Employee> getAllEmployees() {
         return employees;
     }
-    
-    public void empWageBuilder() {
-        for (Employee employee : employees) {
-            totalEmpWage += employee.calculateWage(workingDaysAMonth, workingHoursAMonth);
-        }
+
+    public double getTotalEmpWage() {
+        return totalEmpWage;
     }
 }
