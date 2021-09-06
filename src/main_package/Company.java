@@ -2,10 +2,8 @@ package main_package;
 
 import java.util.*;
 
-public class Company {
-
+public class Company implements ComputeEmployeeWage {
     private List<Employee> employees = new ArrayList<Employee>();
-    
     private int workingDaysAMonth;
     private int workingHoursAMonth;
     private String companyName;
@@ -41,6 +39,7 @@ public class Company {
         }
     }
     
+    @Override
     public double calculateWage(Employee e) {
         double res = e.calculateWage(workingDaysAMonth, workingHoursAMonth);
         totalEmpWage += res;
@@ -74,4 +73,5 @@ public class Company {
     public double getTotalEmpWage() {
         return totalEmpWage;
     }
+
 }
