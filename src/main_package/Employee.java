@@ -1,15 +1,9 @@
 package main_package;
 
 public class Employee{
-	
-	//constants
-	// final double regularEmployeeWorkingHour = 8;
-	// final double parttime_employee_working_hour = 8;
-	// final double workingDaysMonth = 20;
 	final static int REGULAR_EMP = 1;
 	final static int PART_TIME_EMP =2;
 	
-	//class variables
 	int empId;
 	double wagePerHour;
 	int employeeType; 
@@ -26,18 +20,18 @@ public class Employee{
 		return attendance==1?true:false;
 	}
 	
-	public double calculateDailyWage(double workingHours){
-		double total_wage = 0;
-		total_wage = workingHours*wagePerHour;
-		return total_wage;
-	}
-	
-	public double calculateMonthlyWage(double workingHours,int workingDaysMonth) {
-		return calculateDailyWage(workingHours)*workingDaysMonth;
-	}
-	
-	public double calculateWageHour(int hours) {
-		return wagePerHour*hours;
+	public double calculateWage(int workingDays,int workingHours) {
+		int total_worked_hours = 0;
+		int total_worked_days = 0;
+				
+		while(total_worked_hours < workingHours && total_worked_days <workingDays ) {
+			int rng = (int)Math.floor(Math.random()*((8-4)+1)+4);
+			// used formula (max-min+1)+ min to generate a random working hour between 4 and 8
+			total_worked_hours += rng;
+			total_worked_days ++;
+		}
+
+		return wagePerHour*total_worked_hours;
 	}
 	
 }
