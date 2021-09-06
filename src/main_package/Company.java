@@ -3,7 +3,9 @@ package main_package;
 import java.util.*;
 
 public class Company {
+
     private List<Employee> employees = new ArrayList<Employee>();
+    
     private int workingDaysAMonth;
     private int workingHoursAMonth;
     private String companyName;
