@@ -7,6 +7,7 @@ public class Company {
     private int workingDaysAMonth;
     private int workingHoursAMonth;
     private String companyName;
+    private double totalEmpWage = 0;
 
     Company(String name, int workingDaysAMonth, int workingHoursAMonth) {
         this.companyName = name;
@@ -62,7 +63,13 @@ public class Company {
         }
     }
 
-    public List<Employee> getAllEmployees(){
+    public List<Employee> getAllEmployees() {
         return employees;
+    }
+    
+    public void empWageBuilder() {
+        for (Employee employee : employees) {
+            totalEmpWage += employee.calculateWage(workingDaysAMonth, workingHoursAMonth);
+        }
     }
 }
