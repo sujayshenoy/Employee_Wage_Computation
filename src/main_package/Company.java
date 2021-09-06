@@ -8,6 +8,7 @@ public class Company implements ComputeEmployeeWage {
     private int workingHoursAMonth;
     private String companyName;
     private double totalEmpWage = 0;
+    private double dailyWage = 0;
 
     Company(String name, int workingDaysAMonth, int workingHoursAMonth) {
         this.companyName = name;
@@ -42,6 +43,7 @@ public class Company implements ComputeEmployeeWage {
     @Override
     public double calculateWage(Employee e) {
         double res = e.calculateWage(workingDaysAMonth, workingHoursAMonth);
+        dailyWage += e.dailyWage;
         totalEmpWage += res;
         return res;
     }   
@@ -74,4 +76,7 @@ public class Company implements ComputeEmployeeWage {
         return totalEmpWage;
     }
 
+    public double getDailyWage() {
+        return dailyWage;
+    }
 }

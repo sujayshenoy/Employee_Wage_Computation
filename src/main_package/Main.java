@@ -23,6 +23,7 @@ public class Main {
 						+ String.format("%.2f", company.calculateWage(employee)));
 			}
 			
+			System.out.println("Daily Wage Cost to Company: "+String.format("%.2f",company.getDailyWage()));
 			System.out.println("Total Wage of Company: "+company.getCompanyName()+" is "+String.format("%.2f", company.getTotalEmpWage()));
 			System.out.println("");
 		}
