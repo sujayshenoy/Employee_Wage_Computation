@@ -4,14 +4,18 @@ import java.util.*;
 
 public class Company {
     private List<Employee> employees = new ArrayList<Employee>();
-    private double partTimeWorkingHours;
-    private double regularWorkingHours;
     private int workingDaysAMonth;
+    private int workingHoursAMonth;
+    private String companyName;
 
-    Company(double partTimeWorkingHours,double regularWorkingHours,int worworkingDaysAMonth){
-        this.partTimeWorkingHours = partTimeWorkingHours;
-        this.regularWorkingHours = regularWorkingHours;
-        this.workingDaysAMonth = worworkingDaysAMonth;
+    Company(String name, int workingDaysAMonth, int workingHoursAMonth) {
+        this.companyName = name;
+        this.workingDaysAMonth = workingDaysAMonth;
+        this.workingHoursAMonth = workingHoursAMonth;
+    }
+
+    public String getCompanyName() {
+        return companyName;
     }
 
     public void createEmployee(int empId){
@@ -33,24 +37,10 @@ public class Company {
             return Employee.PART_TIME_EMP;
         }
     }
-
-    public double calculateDailyWage(Employee e){
-        if(e.employeeType == Employee.REGULAR_EMP){
-            return e.calculateDailyWage(regularWorkingHours);
-        }
-        else{
-            return e.calculateDailyWage(partTimeWorkingHours);
-        }
-    }
-
-    public double calculateMonthlyWage(Employee e){
-        if(e.employeeType == Employee.REGULAR_EMP){
-            return e.calculateMonthlyWage(regularWorkingHours, workingDaysAMonth);
-        }
-        else{
-            return e.calculateMonthlyWage(partTimeWorkingHours, workingDaysAMonth);
-        }
-    }
+    
+    public double calculateWage(Employee e) {
+        return e.calculateWage(workingDaysAMonth, workingHoursAMonth);
+    }   
 
     public Employee getEmployee(int empId){
         for(Employee employee : employees){
@@ -64,10 +54,10 @@ public class Company {
     public void showAttendance(){
         for(Employee employee : employees){
             if(employee.isPresent()){
-                System.out.println(employee.empId+" is Present");
+                System.out.println("EMP: "+employee.empId+" is Present");
             }
             else{
-                System.out.println(employee.empId+" is Absent");
+                System.out.println("EMP: "+employee.empId+" is Absent");
             }
         }
     }
